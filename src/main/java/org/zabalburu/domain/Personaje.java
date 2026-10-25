@@ -1,13 +1,12 @@
 package org.zabalburu.domain;
 
+
 public class Personaje {
     private String nombre; 
     private String tipo;
     private int vida;
     private int habilidad;
     private int botiquines;
-    
-    
     
     public Personaje(String nombre, String tipo, int vida, int habilidad, int botiquines) {
         this.nombre = nombre;
@@ -16,6 +15,7 @@ public class Personaje {
         this.habilidad = habilidad;
         this.botiquines = botiquines;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -31,12 +31,14 @@ public class Personaje {
     public int getBotiquines() {
         return botiquines;
     }
+
+
     @Override
     public String toString() {
-        return "Personaje [nombre=" + nombre 
+        return "Personaje: nombre=" + nombre 
              + ", tipo=" + tipo + ", vida=" + vida 
              + ", habilidad=" + habilidad
-             + ", botiquines=" + botiquines + "]";
+             + ", botiquines=" + botiquines + ".";
     }
     
 
