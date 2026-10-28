@@ -2,6 +2,17 @@ package org.zabalburu.domain;
 
 
 public class Personaje {
+    public static final int VIDA_MAXIMA_MEDICO = 120;
+    public static final int HABILIDAD_INICIAL_MEDICO = 6;
+    public static final int BOTIQUINES_INICIALES_MEDICO = 3;
+
+    public static final int VIDA_MAXIMA_POLICIA = 100;
+    public static final int HABILIDAD_INICIAL_POLICIA = 8;
+    public static final int BOTIQUINES_INICIALES_POLICIA = 2;
+
+    public static final int VIDA_MAXIMA_BOMBERO = 140;
+    public static final int HABILIDAD_INICIAL_BOMBERO = 7;
+    public static final int BOTIQUINES_INICIALES_BOMBERO = 1;
     private String nombre; 
     private String tipo;
     private int vida;

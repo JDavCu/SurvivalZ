@@ -7,6 +7,12 @@ import org.zabalburu.domain.Personaje;
 public class Main {
     public static void main(String[] args) {
 
+        int vida = 0;
+        int botiquin = 0;
+        int habilidades = 0;
+        String nombreClase = null;
+        int clase = 0;
+
         Personaje user1 = new Personaje("Flavio", "Médico", 120, 6, 3);
         System.out.println(user1);
 
@@ -19,9 +25,8 @@ public class Main {
         System.out.print("Introduce el Nombre: ");
         String nombre = sc.nextLine().trim();
         do {
-            int clase = 0;
 
-            while (clase < 1 || clase >= 3) {
+            while (clase < 1 || clase > 3) {
                 System.out.println("""
                             Elige la Clase:
                             1. Médico.  | Vida = 120 | Botiquin = 3 | Habilidades = 6 |
@@ -31,10 +36,6 @@ public class Main {
                 System.out.print("Eligi una opción: ");
                 clase = sc.nextInt();
                 sc.nextLine();
-                int vida;
-                int botiquin;
-                int habilidades;
-                String nombreClase = null;
 
                 if (clase >= 1 && clase <= 3) {
                     switch (clase) {
@@ -53,7 +54,7 @@ public class Main {
                         case 3:
                             vida = 140;
                             botiquin = 1;
-                            habilidades = 8;
+                            habilidades = 7;
                             nombreClase = "Bombero";
                             break;
                     }
@@ -65,10 +66,45 @@ public class Main {
 
                 }
             }
-            System.out.println("Elegir otra clase: Si/No");
+            System.out.println("Continuar: Si/No");
             intento = sc.nextLine();
+            clase = 0;
 
-        } while (intento.equalsIgnoreCase("Si"));
+        } while (intento.equalsIgnoreCase("No"));
+
+        Personaje user2 = new Personaje(
+                nombre,
+                nombreClase,
+                vida,
+                habilidades,
+                botiquin
+
+        );
+
+        System.out.println("""
+            
+            
+            |=======================|
+            |Nuevo Personaje Creado.|
+            |=======================|    
+            
+            Tu Nombre es            : %s.
+            Tu Clase es             : %s.
+            Puntos de Vida          : %d.
+            Cantidad de botiquines  : %d.
+            Puntos de Destreza      : %d.
+            """.formatted(
+                user2.getNombre(),
+                user2.getTipo(),
+                user2.getVida(),
+                user2.getBotiquines(),
+                user2.getHabilidad()
+
+        ));
+
+
+
+
 
     };
 
