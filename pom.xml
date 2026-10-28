@@ -4,13 +4,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.zabalburu</groupId>
-    <artifactId>projectozombies</artifactId>
+    <groupId>org.zabalburu.survivalz</groupId>
+    <artifactId>survivalz</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github.ichueca</groupId>
+            <artifactId>terminal-utils</artifactId>
+            <version>v1.0.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
