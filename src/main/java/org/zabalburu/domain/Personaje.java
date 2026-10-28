@@ -43,6 +43,10 @@ public class Personaje {
         return botiquines;
     }
 
+    public int dañoRecibido(int daño){
+        return vida - daño;
+    }
+
 
     @Override
     public String toString() {

@@ -35,6 +35,10 @@ public class Zombie {
     public void setVida(int vida) {
         this.vida = vida;
     }
+    public int dañoRecibido(int daño){
+        return vida - daño;
+    
+    }
     @Override
     public String toString() {
         return "Zombie  [Tipo=" + Tipo 

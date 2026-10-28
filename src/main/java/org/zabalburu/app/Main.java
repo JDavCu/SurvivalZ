@@ -106,6 +106,7 @@ public class Main {
         String Dia;
 
         for (int i = 1; i < 6; i++) {
+
             Dia = switch (i) {
                 case 1 -> "🌞 Día 1 ";
                 case 2 -> "🌞 Día 2 ";
@@ -114,9 +115,125 @@ public class Main {
                 default -> "🌞 Día 5";
 
             };
-            System.out.println(Dia);
+
+            if (vida <= 30) {
+                System.out.println("""
+                            =========================
+                            |        ESTADO         |
+                            =========================
+
+                            Tienes %d puntos de vida.
+
+                            Tu Encuentras en 🚨 Estado Critico.
+
+                        """.formatted(vida));
+            } else if (vida <= 70) {
+                System.out.println("""
+                            =========================
+                            |        ESTADO         |
+                            =========================
+
+                            Tienes %d puntos de vida.
+
+                            Te Encuentras ⚠️ Herido.
+
+                        """.formatted(vida));
+
+            } else {
+                System.out.println("""
+                            =========================
+                            |        ESTADO         |
+                            =========================
+
+                            Tienes %d puntos de vida.
+
+                            Te Encuentras en ✅ Buen Estado.
+
+                        """.formatted(vida));
+            }
+            int puntosDeMision = 0;
+
+            do {
+                System.out.println("""
+                            =========================
+                            |   Inicia la Aventura  |
+                            =========================
+                        """);
+
+                System.out.println("Explora la zona");
+                int Mision = 1 + (int) (Math.random() * 2);
+                String tipoDeMision = switch (Mision) {
+                    case 1 -> "Combatir Zombie 🧟";
+                    default -> "Explorar Vivienda 🏘️";
+                };
+                System.out.println("");
+
+                Zombie zombie1 = new Zombie();
+
+                boolean huir = false;
+
+                if (Mision == 1) {
+                    while (zombie1.getVida() > 0 && user2.getVida() > 0 && huir == false) {
+                        System.out.println("Te encontraste con un Zombie 🧟.");
+                        int eleccion = 0;
+
+                        while (eleccion < 1 || eleccion > 3) {
+
+                            System.out.println("""
+
+                                        1️⃣ Atacar.
+                                        2️⃣ Huir.
+                                        3️⃣ Usar Botiquin.
+
+                                    """);
+                            System.out.print("Elige una opción: ");
+                            eleccion = sc.nextInt();
+                            sc.nextLine();
+
+                            if (eleccion >= 1 || eleccion <= 3) {
+                                switch (eleccion) {
+                                    case 1:
+                                        if (zombie1.getVida() > 0) {
+
+                                            int dañoJugador = 1 + (int) (Math.random() * 10);
+                                            int dañoZombie = 1 + (int) (Math.random() * 10);
+                                            System.out.println("""
+                                                    Has atacado un Zombie 🧟.
+                                                    Has realizado %d de daño ⚔️.
+                                                    """.formatted(dañoJugador));
+                                            System.out.println("""
+                                                    El Zombie 🧟 te ha atacado.
+
+                                                    Te a hecho %d puntos de daño ⚔️.
+                                                    """.formatted(dañoZombie));
+                                            System.out.println("""
+                                                    Te quedan %s puntos de vida.
+                                                    El zombie 🧟 tiene %d puntos de vida restantes.
+                                                    """.formatted(user2.dañoRecibido(dañoZombie), zombie1.dañoRecibido(dañoJugador)));
+                                        }
+                                        break;
+                                    case 2:
+                                        vida -= 5;
+                                        System.out.println("""
+                                                Has huido.
+                                                Has Perdido %d Puntos de Vida.
+                                                """.formatted(vida));
+                                    default:
+                                        break;
+                                }
+                            } else {
+                                System.out.println("opcion no valida.Introduce una opción");
+                                eleccion = 0;
+                            }
+
+                        }
+                        if (zombie1.getVida() <= 0) {
+                            puntosDeMision += 10 + (int) (Math.random() * 21);
+                        }
+                        System.out.println("Has huido, no obtienes puntos de misión.");
+                    }
+                }
+            } while (puntosDeMision <= 100);
         }
-
-    };
-
+    }
 }
