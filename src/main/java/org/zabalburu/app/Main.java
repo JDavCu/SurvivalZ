@@ -3,6 +3,7 @@ package org.zabalburu.app;
 import java.util.Scanner;
 
 import org.zabalburu.domain.Personaje;
+import org.zabalburu.domain.Zombie;
 
 public class Main {
     public static void main(String[] args) {
@@ -82,18 +83,18 @@ public class Main {
         );
 
         System.out.println("""
-            
-            
-            |=======================|
-            |Nuevo Personaje Creado.|
-            |=======================|    
-            
-            Tu Nombre es            : %s.
-            Tu Clase es             : %s.
-            Puntos de Vida          : %d.
-            Cantidad de botiquines  : %d.
-            Puntos de Destreza      : %d.
-            """.formatted(
+
+
+                |=======================|
+                |Nuevo Personaje Creado.|
+                |=======================|
+
+                Tu Nombre es            : %s.
+                Tu Clase es             : %s.
+                Puntos de Vida          : %d.
+                Cantidad de botiquines  : %d.
+                Puntos de Destreza      : %d.
+                """.formatted(
                 user2.getNombre(),
                 user2.getTipo(),
                 user2.getVida(),
@@ -102,9 +103,19 @@ public class Main {
 
         ));
 
+        String Dia;
 
+        for (int i = 1; i < 6; i++) {
+            Dia = switch (i) {
+                case 1 -> "🌞 Día 1 ";
+                case 2 -> "🌞 Día 2 ";
+                case 3 -> "🌞 Día 3 ";
+                case 4 -> "🌞 Día 4 ";
+                default -> "🌞 Día 5";
 
-
+            };
+            System.out.println(Dia);
+        }
 
     };
 
